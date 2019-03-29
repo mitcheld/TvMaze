@@ -22,15 +22,5 @@ namespace TvMaze.Services
         {
             return await Context.Set<T>().CountAsync();
         }
-
-        public DbSet<T> Data()
-        {
-            return Context.Set<T>();
-        }
-
-        public async Task<int> SaveChangesAsync()
-        {
-            return await Context.SaveChangesAsync();
-        }
     }
 }

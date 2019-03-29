@@ -10,7 +10,5 @@ namespace TvMaze.Services.Interfaces
     public interface IService<T> where T : Entity
     {
         Task<int> Count();
-        DbSet<T> Data();
-        Task<int> SaveChangesAsync();
     }
 }
