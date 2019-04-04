@@ -1,9 +1,7 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using TvMaze.Models;
+using TvMaze.Infrastructure.Models;
 using TvMaze.Services.Interfaces;
 
 namespace TvMaze.Web.Api.Controllers
@@ -24,7 +22,7 @@ namespace TvMaze.Web.Api.Controllers
         public async Task<ActionResult<List<Show>>> Get(int startIndex = 0, int pageSize = 5)
         {
             // Get data from DB
-            var shows = await _showService.GetShowsWithCastMembers(startIndex, pageSize);
+            var shows = await _showService.GetWithCastMembers(startIndex, pageSize);
 
             return shows;
         }

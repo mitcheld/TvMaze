@@ -10,7 +10,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\TvMaze.Infrastructure\TvMaze.Infrastructure.csproj" />
-    <ProjectReference Include="..\TvMaze.Models\TvMaze.Models.csproj" />
   </ItemGroup>
 
   <ItemGroup>

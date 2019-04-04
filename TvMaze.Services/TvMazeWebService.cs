@@ -5,8 +5,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
-using TvMaze.Models;
-using TvMaze.Models.TvMaze;
+using TvMaze.Infrastructure.Models;
+using TvMaze.Infrastructure.Models.TvMaze;
 using TvMaze.Services.Interfaces;
 
 namespace TvMaze.Services
@@ -41,7 +41,7 @@ namespace TvMaze.Services
 
                 await Task.WhenAll(ids.Select(GetShowWithCast));
 
-                await _showService.AddShowsWithCastMembers(new List<Show>(_shows.Select(x => (Show)x)));
+                await _showService.Add(new List<Show>(_shows.Select(x => (Show)x)));
             }
             catch (Exception ex)
             {

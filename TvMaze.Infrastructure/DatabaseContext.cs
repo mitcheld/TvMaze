@@ -1,6 +1,6 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore;
-using TvMaze.Models;
+using TvMaze.Infrastructure.Models;
 
 namespace TvMaze.Infrastructure
 {

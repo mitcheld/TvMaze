@@ -1,12 +1,11 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Logging;
 using TvMaze.Infrastructure;
-using TvMaze.Models;
+using TvMaze.Infrastructure.Models;
 using TvMaze.Services.Interfaces;
 
 namespace TvMaze.Services
@@ -20,7 +19,7 @@ namespace TvMaze.Services
             _logger = logger;
         }
 
-        public async Task<List<Show>> GetShowsWithCastMembers(int startIndex, int pageSize)
+        public async Task<List<Show>> GetWithCastMembers(int startIndex, int pageSize)
         {
             var shows = await Context.Shows.Skip(startIndex).Take(pageSize).Include(x => x.CastMembers).ToListAsync();
             foreach (var show in shows)
@@ -30,7 +29,7 @@ namespace TvMaze.Services
             return shows;
         }
 
-        public async Task AddShowsWithCastMembers(List<Show> shows)
+        public async Task Add(IEnumerable<Show> shows)
         {
             try
             {
